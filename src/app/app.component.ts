@@ -1,32 +1,105 @@
 import { Component } from '@angular/core';
+import { AddComponent } from './add.component';
+import { AsyncComponent } from './async.component';
+import { DestroyedComponent } from './destroyed.component';
+import { RegularComponent } from './regular.component';
+import { SinkComponent } from './sink.component';
+import { UntilComponent } from './until.component';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <!--The content below is only a placeholder and can be replaced.-->
-    <div style="text-align:center" class="content">
-      <h1>
-        Welcome to {{title}}!
-      </h1>
-      <span style="display: block">{{ title }} app is running!</span>
-      <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+  template: `<div class="container">
+    <div class="intro">
+      <img src="/assets/blog-background.jpg" />
+      <p>
+        Created by
+        <a href="https://github.com/talohana" target="black">tal ohana</a> for
+        <a href="" target="black">this blogpost</a>
+      </p>
     </div>
-    <h2>Here are some links to help you start: </h2>
-    <ul>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-      </li>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-      </li>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-      </li>
-    </ul>
-    
-  `,
-  styles: []
+    <div class="buttons">
+      <button mat-raised-button color="primary" (click)="onChangeComponent(RegularComponent)">
+        Regular
+      </button>
+      <button mat-raised-button color="primary" (click)="onChangeComponent(AddComponent)">
+        Subscription.add
+      </button>
+      <button mat-raised-button color="primary" (click)="onChangeComponent(AsyncComponent)">
+        AsyncPipe
+      </button>
+      <button mat-raised-button color="primary" (click)="onChangeComponent(UntilComponent)">
+        takeUntil
+      </button>
+      <button mat-raised-button color="primary" (click)="onChangeComponent(SinkComponent)">
+        SubSink
+      </button>
+      <button mat-raised-button color="primary" (click)="onChangeComponent(DestoyedComponent)">
+        UntilDestroy
+      </button>
+    </div>
+    <div class="component">
+      <ng-container *ngComponentOutlet="shownComponent"></ng-container>
+    </div>
+  </div>`,
+  styles: [
+    `
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #fff;
+      }
+
+      .intro {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2rem;
+        font-size: 2rem;
+      }
+
+      .intro img {
+        width: 50rem;
+        height: auto;
+      }
+
+      .intro a {
+        text-transform: uppercase;
+        text-decoration: none;
+        color: #da1189;
+        font-size: 1.1em;
+      }
+
+      .buttons {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .buttons button:not(:last-child) {
+        margin-right: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .component {
+        margin-top: 3rem;
+        font-size: 3.5rem;
+        line-height: 5rem;
+        min-height: 10rem;
+      }
+    `,
+  ],
 })
 export class AppComponent {
-  title = 'unsubscribe-patterns-blog';
+  shownComponent = RegularComponent;
+  RegularComponent = RegularComponent;
+  AddComponent = AddComponent;
+  AsyncComponent = AsyncComponent;
+  UntilComponent = UntilComponent;
+  SinkComponent = SinkComponent;
+  DestoyedComponent = DestroyedComponent;
+
+  onChangeComponent(component) {
+    this.shownComponent = component;
+  }
 }

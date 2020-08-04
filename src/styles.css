@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+  font-weight: 400;
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 750px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2c3436;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
