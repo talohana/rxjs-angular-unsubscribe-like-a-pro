@@ -16,8 +16,12 @@ import { UntilComponent } from './until.component';
       </p>
       <p>
         Created by
-        <a href="https://github.com/talohana" target="black">tal ohana</a> for
-        <a href="" target="black">this blogpost</a>
+        <a href="https://github.com/talohana" target="blank">tal ohana</a> for
+        <a
+          href="https://medium.com/@tal.ohana.x/rxjs-angular-unsubscribe-like-a-pro-ffeedec60aa7"
+          target="blank"
+          >this blogpost</a
+        >
       </p>
     </div>
     <div class="buttons">

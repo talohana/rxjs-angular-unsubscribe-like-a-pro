@@ -5,7 +5,6 @@ import { DummyService } from './services/dummy.service';
 @Component({
   selector: 'app-async',
   template: `<div>{{ emissions$ | async }}</div>`,
-  styles: [],
 })
 export class AsyncComponent implements OnInit {
   emissions$: Observable<string>;
