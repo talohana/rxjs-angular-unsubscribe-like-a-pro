@@ -10,7 +10,10 @@ import { UntilComponent } from './until.component';
   selector: 'app-root',
   template: `<div class="container">
     <div class="intro">
-      <img src="/assets/blog-background.jpg" />
+      <img src="https://www.dropbox.com/s/4eyegqfu11pgloi/blog-background.jpg?dl=1" />
+      <p>
+        Open your console and switch between components
+      </p>
       <p>
         Created by
         <a href="https://github.com/talohana" target="black">tal ohana</a> for

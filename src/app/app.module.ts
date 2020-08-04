@@ -20,6 +20,16 @@ import { UntilComponent } from './until.component';
     UntilComponent,
     DestroyedComponent,
   ],
+  // for stackblitz
+  entryComponents: [
+    AppComponent,
+    RegularComponent,
+    SinkComponent,
+    AddComponent,
+    AsyncComponent,
+    UntilComponent,
+    DestroyedComponent,
+  ],
   imports: [BrowserModule, BrowserAnimationsModule, MatButtonModule],
   providers: [],
   bootstrap: [AppComponent],
